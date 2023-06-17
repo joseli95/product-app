@@ -1,6 +1,6 @@
 import Form from './Form'
 import ProductItem from './ProductItem'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const ProductList = () => {
   const [productCount, setProductCount] = useState(3)
@@ -24,8 +24,11 @@ const ProductList = () => {
 
   const addProduct = (product) => {
     setProducts([...products, product])
-    setProductCount(productCount + 1)
   }
+
+  useEffect(() => {
+    setProductCount(products.length)
+  }, [products])
 
   return (
     <>
