@@ -1,4 +1,4 @@
-const Form = ({products}) => {
+const Form = ({onSubmit}) => {
   const submit = (event) => {
     event.preventDefault()
 
@@ -7,7 +7,7 @@ const Form = ({products}) => {
     const description = form[1].value
     const price = form[2].value
     const product = {name, description, price}
-    products.push(product)
+    onSubmit(product)
     form.reset()
   }
 
